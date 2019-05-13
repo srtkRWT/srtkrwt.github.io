@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("./websiteparts/background.png");
+  
+  /* Add the blur effect 
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  */
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.grow{
+  font-size: 3em;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".growman").mouseenter(function(){
+    var div = $(".growman");
+    div.animate({width: "+=100px",height: "+=100px"}, "slow");
+  });
+  $(".growman").mouseleave(function(){
+    var div = $(".growman");
+    div.animate({width: "-=100px",height: "-=100px"}, "slow");
+  });
+  
+  $(".growboard").mouseenter(function(){
+    var div = $(".growboard");
+    div.animate({width: "+=100px",height: "+=100px"}, "slow");
+  });
+  $(".growboard").mouseleave(function(){
+    var div = $(".growboard");
+    div.animate({width: "-=100px",height: "-=100px"}, "slow");
+  });
+  
+  $(".growlogo").mouseenter(function(){
+    var div = $(".growlogo");
+    div.animate({width: "+=100px",height: "+=100px"}, "slow");
+  });
+  $(".growlogo").mouseleave(function(){
+    var div = $(".growlogo");
+    div.animate({width: "-=100px",height: "-=100px"}, "slow");
+  });
+  
+});
+</script>
+
+</head>
+<body>
+
+<div class="bg-image">
+  
+<div>
+ <img class="growman" src="./websiteparts/cameraman.png" STYLE="position:absolute; TOP:550px; LEFT:1000px; WIDTH:150px; HEIGHT:300px"></img>
+ <img src="./websiteparts/treeline.png" STYLE="position:absolute; TOP:650px; LEFT:0px; WIDTH:1921px; HEIGHT:300px"></img>
+ <img class="growboard" src="./websiteparts/signboard.png" STYLE="position:absolute; TOP:650px; LEFT:50px; WIDTH:150px; HEIGHT:300px"></img>
+ <img class="growlogo" src="./websiteparts/logo.png" STYLE="position:absolute; TOP:70px; LEFT:400px; WIDTH:1000px; HEIGHT:100px"></img>
+ 
+ 
+</div>
+
+</div>
+
+</body>
+</html>
