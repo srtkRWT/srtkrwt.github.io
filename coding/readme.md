@@ -1,8 +1,27 @@
+- # Sieve of Eratosthenes
+---
+- # GCD
+---
+- # Stack
+---
+- # Queue
+---
+- # Sort(STL)
+---
+- # Pair(STL)
+---
+- # Graph Traversal
+---
 - # Segment Tree
   1. Tuitorials
     -[geeksforgeeeks](https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
     -[youtube](https://www.youtube.com/watch?v=CN0N1ddJ9hA)
     -[youtube](https://www.youtube.com/watch?v=BuoG-1KC4qs)
     -[youtube](https://www.youtube.com/watch?v=ZBHKZF5w4YU)
-    
-  ---
+---
+- # Binary Search The Answer
+---
+- # Priority Queue
+---
+- # Graph
+---
