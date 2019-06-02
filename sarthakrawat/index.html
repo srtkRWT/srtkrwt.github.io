@@ -1,105 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".div-class").css("width", $("bg").css("width"));
+        });
+    </script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            #background-image: url(websiteparts/background.png);
+            
+        }
+        /*
+        .blur {
+            #filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+        */
+        .bg {
+            background-image: url("websiteparts/background.png");
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
+        }
+        
+        .div-class {
+            
+        }
+        
+        #upper-div {
+            height: 33%;
+            width: inherit;
+        }
+        
+        #mid-div {
+            height: 34%;
+            width: inherit;
+        }
+        
+        #lower-div {
+            height: 33%;
+            width: inherit;
+        }
+        
+        #lower1-div {
+            height: 33%;
+            width: inherit;
+        }
+        
+        #lower2-div {
+            height: 67%;
+            width: inherit;
+        }
 
-* {
-  box-sizing: border-box;
-}
-
-.bg-image {
-  /* The image used */
-  background-image: url("./websiteparts/background.png");
-  
-  /* Add the blur effect 
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  */
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Position text in the middle of the page/image */
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-}
-
-.grow{
-  font-size: 3em;
-}
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $(".growman").mouseenter(function(){
-    var div = $(".growman");
-    div.animate({width: "+=100px",height: "+=100px"}, "fast");
-  });
-  $(".growman").mouseleave(function(){
-    var div = $(".growman");
-    div.animate({width: "-=100px",height: "-=100px"}, "fast");
-  });
-  
-  $(".growboard").mouseenter(function(){
-    var div = $(".growboard");
-    div.animate({width: "+=100px",height: "+=100px"}, "fast");
-  });
-  $(".growboard").mouseleave(function(){
-    var div = $(".growboard");
-    div.animate({width: "-=100px",height: "-=100px"}, "fast");
-  });
-  
-  $(".growlogo").mouseenter(function(){
-    var div = $(".growlogo");
-    div.animate({width: "+=100px",height: "+=100px"}, "fast");
-  });
-  $(".growlogo").mouseleave(function(){
-    var div = $(".growlogo");
-    div.animate({width: "-=100px",height: "-=100px"}, "fast");
-  });
-  
-});
-</script>
-
+        #board {
+            height: 250%;
+        }
+        
+        #treeline {
+            height: 150%;
+            width: 100%;
+        }
+        
+    </style>
 </head>
-<body>
-
-<div class="bg-image">
-  
-<div>
- <img class="growman" src="./websiteparts/cameraman.png" STYLE="position:absolute; TOP:550px; LEFT:1000px; WIDTH:150px; HEIGHT:300px"></img>
- <img src="./websiteparts/treeline.png" STYLE="position:absolute; TOP:650px; LEFT:0px; WIDTH:1921px; HEIGHT:300px"></img>
- <img class="growboard" src="./websiteparts/signboard.png" STYLE="position:absolute; TOP:650px; LEFT:50px; WIDTH:150px; HEIGHT:300px"></img>
- <img class="growlogo" src="./websiteparts/logo.png" STYLE="position:absolute; TOP:70px; LEFT:400px; WIDTH:1000px; HEIGHT:100px"></img>
- 
- 
-</div>
-
-</div>
-
+<body class="">
+    <div id="container" class="bg">
+        <div id="upper-div" class="div-class">
+        </div>
+        
+        <div id="mid-div"  class="div-class">
+        </div>
+        
+        <div id="lower-div"  class="div-class">
+            <div id="lower1-div">
+                <img src="websiteparts/signboard.png" alt="board" id="board">
+                <div class="col-sm-3 col-md-6 col-lg-4">....</div>
+                <div class="col-sm-3 col-md-6 col-lg-4">....</div>
+                <div class="col-sm-9 col-md-6 col-lg-8">....</div>
+            </div>
+            
+            <div id="lower2-div">
+                <img src="websiteparts/treeline.png" alt="treeline" id="treeline">
+            </div>
+            
+            <div id="lower3-div">
+                
+            </div>
+                
+        </div>
+    </div>
 </body>
 </html>
