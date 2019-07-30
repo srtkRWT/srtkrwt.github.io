@@ -1,102 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(".div-class").css("width", $("bg").css("width"));
-        });
-    </script>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            #background-image: url(websiteparts/background.png);
-            
-        }
-        /*
-        .blur {
-            #filter: blur(8px);
-            -webkit-filter: blur(8px);
-        }
-        */
-        .bg {
-            background-image: url("websiteparts/background.png");
-            height: 100%;
-            width: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-            background-size: cover;
-        }
-        
-        .div-class {
-            
-        }
-        
-        #upper-div {
-            height: 33%;
-            width: inherit;
-        }
-        
-        #mid-div {
-            height: 34%;
-            width: inherit;
-        }
-        
-        #lower-div {
-            height: 33%;
-            width: inherit;
-        }
-        
-        #lower1-div {
-            height: 33%;
-            width: inherit;
-        }
-        
-        #lower2-div {
-            height: 67%;
-            width: inherit;
-        }
-
-        #board {
-            height: 250%;
-        }
-        
-        #treeline {
-            height: 150%;
-            width: 100%;
-        }
-        
-    </style>
+  <title>InfoTales</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+    body {
+      /* background-image: url("./background.png"); */
+      background-color: #000;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    /* .row.content {height: 450px} */
+    
+    /* Set gray background color and 100% height */
+    /* .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    } */
+    
+    /* Set black background color, white text and some padding */
+    /* footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    } */
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
 </head>
-<body class="">
-    <div id="container" class="bg">
-        <div id="upper-div" class="div-class">
-        </div>
-        
-        <div id="mid-div"  class="div-class">
-        </div>
-        
-        <div id="lower-div"  class="div-class">
-            <div id="lower1-div">
-                <img src="websiteparts/signboard.png" alt="board" id="board">
-                <div class="col-sm-3 col-md-6 col-lg-4">....</div>
-                <div class="col-sm-3 col-md-6 col-lg-4">....</div>
-                <div class="col-sm-9 col-md-6 col-lg-8">....</div>
-            </div>
-            
-            <div id="lower2-div">
-                <img src="websiteparts/treeline.png" alt="treeline" id="treeline">
-            </div>
-            
-            <div id="lower3-div">
-                
-            </div>
-                
-        </div>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <a class="navbar-brand" href="#about-us"><img src="logo.png" alt="IT Logo" class="mr-3 mt-3" style="width:200px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#about-us"> <span class="sr-only">(current)</span> About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#documentaries"> Documentaries </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#content"> Content</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact-us"> Contact Us</a>
+        </li>
+      </ul>
+      
     </div>
+  </nav>
+  
+<div class="container-fluid text-left">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav bg-transparent">
+    </div>
+    <div class="col-sm-8 text-center "> 
+      <div class="card bg-transparent text-info" style="width: 100%; height: 50%;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title" id="about-us">About Us</h5>
+          <p class="card-text">Infotales Communications Private Limited is a complete communications company. We make documentary films and generate striking content and graphics designs. We provide support for developing the media strategy and communication plan as per your requirements.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+
+      </div>
+
+      <div class="card bg-transparent text-danger" style="width: 100%; height: 50%;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title" id="documentaries">Documentaries</h5>
+          <p class="card-text">We create high quality films on social issues, for process documentation, and donor videos for the development sector.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+
+      </div>
+
+
+      <div class="card bg-transparent text-info" style="width: 100%; height: 50%;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title" id="content">Content</h5>
+          <p class="card-text">We generate academic centent as well as case studies and research reports.</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+
+      </div>
+
+      <div class="card bg-transparent text-danger" style="width: 100%; height: 50%;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title" id="contact-us">Contact Us</h5>
+          <p class="card-text">Registered Address - <br> Himgiri House <br> Balbhadrapur <br> Kotdwar <br> Uttarakhand <br> - 246149</p>
+          <p class="card-text">Communication Address - <br> 206 Upper Ground Floor<br> DDA Site 1 <br> New Rajinder Nagar <br> New Delhi <br> - 110060</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-sm-2 sidenav bg-transparent">
+    </div>
+  </div>
+</div>
+
+<!-- 
+<footer class="container-fluid text-center">
+  <p>GEU</p>
+</footer>
+ -->
+
 </body>
 </html>
