@@ -17,7 +17,7 @@ function ajax_get(url, callback) {
     xmlhttp.send();
 }
  
-ajax_get('srtkrwt.github.io/models/model.json', function(data) {
+ajax_get('../models/model.json', function(data) {
     console.log(data);
     //document.getElementById("title").innerHTML = data["title"];
  
