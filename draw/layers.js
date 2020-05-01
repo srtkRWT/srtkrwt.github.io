@@ -1,13 +1,17 @@
 let event_canvas_full = new Event("canvas_full");
+
 const layer_limit =  13;
 const line_limit = 100;
-function Canvas(id){
+
+const canvas_height = 2048;
+const canvas_width = 786;
+
+
+function Canvas(id, lineColor, lineWidth){
 	this.linesArr = [];
-	this.height   = 100;
-	this.width    = 100;
 	this.painting = false;
-	this.lineWidth= 1;
-	this.lineColor= "black";
+	this.lineWidth= lineWidth;
+	this.lineColor= lineColor;
 	this.live     = false;
 	this.canvas   = document.createElement("canvas");
 	
@@ -18,13 +22,13 @@ function Canvas(id){
 	
 	console.log(this.context);
 	
-	this.canvas.height = window.innerHeight;
-	this.canvas.width  = window.innerWidth;
+	this.canvas.height = canvas_height;//window.innerHeight;
+	this.canvas.width  = canvas_width;//window.innerWidth;
 	
-	window.addEventListener("resize", () => {
-		this.canvas.height = window.innerHeight;
-		this.canvas.width  = window.innerWidth;
-	});
+	// window.addEventListener("resize", () => {
+		// this.canvas.height = window.innerHeight;
+		// this.canvas.width  = window.innerWidth;
+	// });
 
 	this.startPosition = (e)=>{
 		if(e.button == 0){
@@ -117,7 +121,7 @@ function Canvas(id){
 window.addEventListener("load", () =>{
 	let layers = [];
 	
-	layers.push(new Canvas(layers.length));
+	layers.push(new Canvas(layers.length, "black", 1));
 	// layers.push(new Canvas(layers.length));
 	// layers.push(new Canvas(layers.length));
 	// console.log(layers[0]);
@@ -126,7 +130,11 @@ window.addEventListener("load", () =>{
 	document.addEventListener("canvas_full", (e) => {
 		console.log("adding new canvas");
 		layers[layers.length - 1].deactivate();
-		layers.push(new Canvas(layers.length));
+		layers.push(new Canvas(
+			layers.length,
+			layers[layers.length - 1].lineColor,
+			layers[layers.length - 1].lineWidth
+		));
 	}, false);
 	
 	window.addEventListener("keypress", (e) => {
@@ -139,7 +147,29 @@ window.addEventListener("load", () =>{
 			
 			layers[layers.length - 1].undo();
 			
+		}else if(e.key == '1'){
+			layers[layers.length - 1].lineWidth = 1;
+			if(layers[layers.length - 1].lineColor == "white")
+				layers[layers.length - 1].lineColor = "black";
+		}else if(e.key == '2'){
+			layers[layers.length - 1].lineWidth = 3;
+			if(layers[layers.length - 1].lineColor == "white")
+				layers[layers.length - 1].lineColor = "black";
+		}else if(e.key == '3'){
+			layers[layers.length - 1].lineWidth = 5;
+			if(layers[layers.length - 1].lineColor == "white")
+				layers[layers.length - 1].lineColor = "black";
+		}else if(e.key == '4'){
+			layers[layers.length - 1].lineColor = "black";
+		}else if(e.key == '5'){
+			layers[layers.length - 1].lineColor = "red";
+		}else if(e.key == '6'){
+			layers[layers.length - 1].lineColor = "green";
+		}else if(e.key == '7'){
+			layers[layers.length - 1].lineColor = "blue";
+		}else if(e.key === '0'){
+			layers[layers.length - 1].lineColor = "white";
+			layers[layers.length - 1].lineWidth = 9;
 		}
 	});
 });
-
