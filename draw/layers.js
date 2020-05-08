@@ -3,9 +3,11 @@ let event_canvas_full = new Event("canvas_full");
 const layer_limit =  13;
 const line_limit = 100;
 
-const canvas_height = 2048;
-const canvas_width = 786;
+const canvas_height = 4096;
+const canvas_width = 2048;
 
+var mouseX = 0;
+var mouseY = 0;
 
 function Canvas(id, lineColor, lineWidth){
 	this.linesArr = [];
@@ -24,12 +26,7 @@ function Canvas(id, lineColor, lineWidth){
 	
 	this.canvas.height = canvas_height;//window.innerHeight;
 	this.canvas.width  = canvas_width;//window.innerWidth;
-	
-	// window.addEventListener("resize", () => {
-		// this.canvas.height = window.innerHeight;
-		// this.canvas.width  = window.innerWidth;
-	// });
-
+		
 	this.startPosition = (e)=>{
 		if(e.button == 0){
 			this.painting = true;
@@ -40,34 +37,38 @@ function Canvas(id, lineColor, lineWidth){
 			});
 			this.addSteps(e);
 			this.context.beginPath();
-			this.context.moveTo(e.x, e.y);
+			this.context.moveTo(e.pageX - this.canvas.offsetLeft, e.pageY - this.canvas.offsetTop);
 			this.context.strokeStyle = this.lineColor;
 			this.context.lineWidth = this.lineWidth;
-			this.draw(e);
+			this.draw({x: e.pageX - this.canvas.offsetLeft, y: e.pageY - this.canvas.offsetTop});
 		}
 	}
 
 	this.endPosition = ()=>{
 		this.painting = false;	
 		this.context.beginPath();
+		//TODO share the line just finished ...
 		if(this.linesArr.length >= layer_limit){
 			document.dispatchEvent(event_canvas_full);
 		}
 	}
 	
 	this.addSteps = (e)=>{
-		this.mouseX = e.x;
-		this.mouseY = e.y;
+		mouseX = e.pageX - this.canvas.offsetLeft;
+		mouseY = e.pageY - this.canvas.offsetTop;
 		if(this.painting == false) return;
+		let lastPoint = this.linesArr[this.linesArr.length - 1].coords[this.linesArr[this.linesArr.length - 1].coords.length - 1];
 		if(this.linesArr[this.linesArr.length - 1].coords.length >= line_limit){
+			//TODO share the line just finished ...
 			this.linesArr.push({
 				lineColor : this.lineColor,
 				lineWidth : this.lineWidth,
 				coords:[]
 			});
+			this.linesArr[this.linesArr.length - 1].coords.push(lastPoint);
 		}
-		this.linesArr[this.linesArr.length - 1].coords.push({x: e.x, y: e.y});
-		this.draw(e);
+		this.linesArr[this.linesArr.length - 1].coords.push({x: mouseX, y: mouseY});
+		this.draw({x: mouseX, y: mouseY});
 	}
 	
 	
@@ -76,10 +77,7 @@ function Canvas(id, lineColor, lineWidth){
 		this.context.stroke();
 		this.context.moveTo(e.x, e.y);
 	}
-	
-	// let commands = function(e){
-	// }
-	
+		
 	this.undo = ()=>{
 		this.linesArr.pop();
 		this.reDraw();
@@ -118,14 +116,10 @@ function Canvas(id, lineColor, lineWidth){
 	
 }
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", () =>{	
 	let layers = [];
 	
 	layers.push(new Canvas(layers.length, "black", 1));
-	// layers.push(new Canvas(layers.length));
-	// layers.push(new Canvas(layers.length));
-	// console.log(layers[0]);
-	// layers[2].activate();
 	
 	document.addEventListener("canvas_full", (e) => {
 		console.log("adding new canvas");
@@ -173,3 +167,4 @@ window.addEventListener("load", () =>{
 		}
 	});
 });
+
