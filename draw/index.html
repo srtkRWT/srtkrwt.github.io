@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>CANVAS</title>
+		<title>Draw</title>
 		<style>
 			canvas{
-				border: 0;
+				border: 2px solid #000000;
 				margin: 0;
 				position: absolute;
 				top: 0px;
 				left: 0px;
 				background: transparent;
 			}
-			
+			canvas#mouseCanvas {
+				border: 0px solid #000000;
+				margin: 0;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+				z-index:-1000;
+			}
 			body{
 				margin: 0;
 			}
